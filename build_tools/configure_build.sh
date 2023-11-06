@@ -61,7 +61,7 @@ case $2 in
 
   nrf5340)
     echo "Building for NRF5340"
-    export ARM_CPU="cortex-m4"
+    export ARM_CPU="cortex-m33"
     if [ -z ${PATH_TO_LINKER_SCRIPT+x} ]; then
       export PATH_TO_LINKER_SCRIPT="${PATH_TO_REPO}/third_party/nrfx-custom/nrf5340_xxaa_application.ld"
     fi
@@ -151,6 +151,10 @@ esac
 # Set UART to use
 case $2 in
   nrf52840)
+    UART=0
+    ;;
+  
+  nrf5340)
     UART=0
     ;;
 
