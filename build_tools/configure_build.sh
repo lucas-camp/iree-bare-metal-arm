@@ -59,6 +59,14 @@ case $2 in
     fi
     ;;
 
+  nrf5340)
+    echo "Building for NRF5340"
+    export ARM_CPU="cortex-m4"
+    if [ -z ${PATH_TO_LINKER_SCRIPT+x} ]; then
+      export PATH_TO_LINKER_SCRIPT="${PATH_TO_REPO}/third_party/nrfx-custom/nrf5340_xxaa_application.ld"
+    fi
+    ;;
+
   stm32f407)
     echo "Building for STM32F407"
     export ARM_CPU="cortex-m4"
